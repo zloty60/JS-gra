@@ -28,6 +28,8 @@ function setGameElements() {
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
+        playerResultElem.innerText = '';
+        computerResultElem.innerText = '';
       break;
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
@@ -50,11 +52,6 @@ function newGame() {
   }
 }
 
-function playerPick(playerPick) {
-    var computerPick = getComputerPick();
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
-}
 
 function getComputerPick() {
     var possiblePicks = ['rock', 'paper', 'scissors'];
@@ -80,9 +77,9 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
-
-    setWinner();
     setGamePoints();
+    setWinner();
+    
 }
 
 function playerPick(playerPick) {
